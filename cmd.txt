@@ -1,0 +1,3 @@
+use scanners/routers/router_scan
+set target 192.168.0.1
+run
