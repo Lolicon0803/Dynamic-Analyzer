@@ -47,6 +47,12 @@ if sys.argv[1] == '-scan':
             target_only(o, sys.argv[3])
         elif str(o).find("exploits/routers/linksys/eseries_themoon_rce")!= -1:
             target_only(o, sys.argv[3])
+        elif str(o).find("exploits/generic/heartbleed")!= -1:
+            target_only(o, sys.argv[3])
+        elif str(o).find("exploits/generic/ssh_auth_keys")!= -1:
+            target_only(o, sys.argv[3])
+        elif str(o).find("exploits/generic/ssh_bruteforce")!= -1:
+            target_only(o, sys.argv[3])
         
 
     with open(''.join([sys.argv[2], '/searchCmd.txt']), 'w') as f:
