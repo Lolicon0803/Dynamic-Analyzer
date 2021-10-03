@@ -16,7 +16,7 @@ def shell_exit():
 
 if sys.argv[1] == '-cmd':
     with open('cmd.txt', 'w') as f:
-        f.write("use scanners/routers/router_scan\n")
+        f.write("use scanners/autopwn\n")
         f.write(''.join(["set target ",sys.argv[3],'\n']))
         f.write("run\n")
 
@@ -46,12 +46,6 @@ if sys.argv[1] == '-scan':
         elif str(o).find("exploits/routers/dlink/dir_300_320_615_auth_bypass")!= -1:
             target_only(o, sys.argv[3])
         elif str(o).find("exploits/routers/linksys/eseries_themoon_rce")!= -1:
-            target_only(o, sys.argv[3])
-        elif str(o).find("exploits/generic/heartbleed")!= -1:
-            target_only(o, sys.argv[3])
-        elif str(o).find("exploits/generic/ssh_auth_keys")!= -1:
-            target_only(o, sys.argv[3])
-        elif str(o).find("exploits/generic/ssh_bruteforce")!= -1:
             target_only(o, sys.argv[3])
         
 

