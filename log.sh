@@ -26,6 +26,8 @@ echo "making exec cmd..."
 python3 log.py -scan $logDir $1
 echo "execusing..."
 timeout -s SIGKILL 5m python3 $routerSploit < $searchCmd > $execLog
+echo "making log..."
+python3 log.py -json $logDir $1
 echo "finish."
 
 #timeout -s SIGKILL 5m python3 rsf.py < log2.txt > log3.txt
