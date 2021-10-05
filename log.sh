@@ -1,10 +1,12 @@
 #!/bin/bash
 # $1 IP
 # $2 UUID
+# $3 user_id
+# $4 device_id
 
 routerSploit="../rsf.py" #Change it
 dir="$2" #Change it
-logDir="$dir/static" 
+logDir="$dir/dynamic" 
 scanLog="$logDir/scanLog.txt"
 execLog="$logDir/execLog.txt"
 
@@ -22,12 +24,12 @@ echo "making cmd..."
 python3 log.py -cmd $logDir $1
 echo "scanning..."
 timeout -s SIGKILL 5m python3 $routerSploit < $cmd > $scanLog
+echo "making log..."
+python3 log.py -json $logDir $1 $2 $3 $4
 echo "making exec cmd..."
 python3 log.py -scan $logDir $1
 echo "execusing..."
 timeout -s SIGKILL 5m python3 $routerSploit < $searchCmd > $execLog
-echo "making log..."
-python3 log.py -json $logDir $1
 echo "finish."
 
 #timeout -s SIGKILL 5m python3 rsf.py < log2.txt > log3.txt
