@@ -1,6 +1,8 @@
 #!/bin/bash
 # $1 IP
 # $2 UUID
+# $3 user_id
+# $4 device_id
 
 routerSploit="../rsf.py" #Change it
 dir="$2" #Change it
@@ -28,7 +30,6 @@ echo "making exec cmd..."
 python3 log.py -scan $logDir $1
 echo "execusing..."
 timeout -s SIGKILL 5m python3 $routerSploit < $searchCmd > $execLog
-
 echo "finish."
 
 #timeout -s SIGKILL 5m python3 rsf.py < log2.txt > log3.txt

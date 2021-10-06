@@ -1,18 +1,6 @@
 {
-<<<<<<< HEAD
  "exploits": {
   "time": "40.0200",
-=======
- "uuid": "test1",
- "user_id": "1",
- "device_id": "1",
- "status": "testing",
- "exploits_time": "40.0200",
- "creds_time": "128.6500",
- "created_at": "2021-10-06 02:01:34",
- "updated_at": "2021-10-06 02:01:34",
- "exploits": {
->>>>>>> 505bc9cf5a078b551a8b76fb78c2d49e6a34cbf5
   "details": [
    {
     "status": "invulnerable",
