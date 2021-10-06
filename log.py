@@ -2,9 +2,10 @@
 import sys
 import json
 import re
+import requests
 
 # sys.argv[1] -scan
-# sys.argv[2] uuid/static
+# sys.argv[2] uuid
 # sys.argv[3] ip
 
 
@@ -27,7 +28,7 @@ if sys.argv[1] == '-scan':
     output = []
     writeData = []
 
-    with open(''.join([sys.argv[2], '/scanLog.txt']), 'r') as f:
+    with open(''.join([sys.argv[2], '/dynamic/scanLog.txt']), 'r') as f:
         content_list = f.read().splitlines()
 
     for content in content_list:
@@ -51,7 +52,7 @@ if sys.argv[1] == '-scan':
             target_only(o, sys.argv[3])
         
 
-    with open(''.join([sys.argv[2], '/searchCmd.txt']), 'w') as f:
+    with open(''.join([sys.argv[2], '/dynamic/searchCmd.txt']), 'w') as f:
         for w in writeData:
             f.write(w)
 
@@ -76,7 +77,7 @@ if sys.argv[1]== '-json':
 
     STATUS = ['invulnerable', 'vulnerable', 'unable_verified', 'undefined']
 
-    with open(''.join(['test1/static', '/scanLog.txt']), 'r') as f:
+    with open(''.join(['test1/dynamic', '/scanLog.txt']), 'r') as f:
         content_list = f.read().splitlines()
 
     creds_data = []
@@ -139,71 +140,16 @@ if sys.argv[1]== '-json':
         creds_obj['time'] = time_list[1]
 
 
-    with open(''.join([sys.argv[2], '/log.json']), 'w') as f:
+    # call api
+    api_str = "http://127.0.0.1/api/analyses/"+sys.argv[2]+"/dynamic"
+    #api_str = "http://10.118.126.210/api/analyses/fdf22e01-7897-42ad-ada8-20b0680d0cb3"+"/dynamic"
+    response = requests.post(api_str, json=json_obj)
+    print(response)
+
+    with open(''.join([sys.argv[2], '/dynamic/log.json']), 'w') as f:
         f.write(json.dumps(json_obj, indent=1))
 
 
 
 
 
-
-
-
-
-
-
-'''
-if sys.argv[1] == '-scan':
-    output = []
-
-    with open(''.join([sys.argv[2], '/scan.txt']), 'r') as f:
-        content_list = f.read().splitlines()
-
-    for content in content_list:
-        if content.find("92m[+]") != -1 and content.find("Device") == -1 and content.find("=>") == -1:
-            c = content.split(' ')
-            output.append(c[3])
-
-    with open(''.join([sys.argv[2], '/searchCmd.txt']), 'w') as f:
-        for t in output:
-            f.write("use "+t+"\n")
-            f.write("show options\n")
-
-'''
-
-'''
-elif sys.argv[1] == '-b':
-
-    output = []
-    flag = 0
-
-    with open('log2.txt', 'r') as f:
-        command_list = f.read().splitlines()
-
-    with open('log3.txt', 'r') as f:
-        content_list = f.read().splitlines()
-
-    for content in content_list:
-
-        if content.find("Target options") != -1:
-            o = command_list.pop(0)
-            if o.find("rce") != -1:
-                flag = 1
-
-            output.append(o)
-            command_list.pop(0)
-
-        if content.find("target") != -1:
-            output.append("set target "+sys.argv[2])
-            output.append("run")
-
-            print(flag)
-            if flag == 1:
-                output.append("exit")
-
-            flag = 0
-
-    with open('log4.txt', 'w') as f:
-        for t in output:
-            f.write(t+"\n")
-'''
