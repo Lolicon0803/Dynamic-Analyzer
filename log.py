@@ -28,7 +28,7 @@ if sys.argv[1] == '-scan':
     output = []
     writeData = []
 
-    with open(''.join([sys.argv[2], '/scanLog.txt']), 'r') as f:
+    with open(''.join([sys.argv[2], '/dynamic/scanLog.txt']), 'r') as f:
         content_list = f.read().splitlines()
 
     for content in content_list:
@@ -52,7 +52,7 @@ if sys.argv[1] == '-scan':
             target_only(o, sys.argv[3])
         
 
-    with open(''.join([sys.argv[2], '/searchCmd.txt']), 'w') as f:
+    with open(''.join([sys.argv[2], '/dynamic/searchCmd.txt']), 'w') as f:
         for w in writeData:
             f.write(w)
 
@@ -140,7 +140,7 @@ if sys.argv[1]== '-json':
         creds_obj['time'] = time_list[1]
 
 
-    with open(''.join([sys.argv[2], '/log.json']), 'w') as f:
+    with open(''.join([sys.argv[2], '/dynamic/log.json']), 'w') as f:
         f.write(json.dumps(json_obj, indent=1))
 
 
